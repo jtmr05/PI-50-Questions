@@ -6,11 +6,20 @@
 #include "aux.h"
 
 int main(int argc, char *argv[]){
+    if (argc==1){
+        printf("Nenhum argumento!\n");
+        return 1;
+    }
     char *func = argv[1];
 	int i, f=0;
-	unsigned long N=strlen(func);
-	for(i=0; i<N; i++)
-		f += (*(func + i) - 48) * (int) pow(10,(double) N-i-1);
+	const size_t N=strlen(func);
+	for(i=0; i<N; i++) {
+        f += (*(func + i) - 48) * (int) pow(10, (double) N - i - 1);
+        if (*(func+i) < 48 || *(func+i) > 57){
+            printf("Argumento inválido!\n");
+            return 1;
+        }
+    }
 
 	int n, fator, *array, tam, x, tam1, *array1, tam2, *array2, *r, a, b, ll, cc;
     char *s1, *s2, c, *dest, *source;
@@ -807,7 +816,6 @@ int main(int argc, char *argv[]){
 
         default:
 		    printf("Função não existe!\n");
-
 
 	}
     return 0;
