@@ -31,7 +31,7 @@ void media(){
 
 //3
 void smaior(){
-    int n, m=0, sm=0, flag=1;
+    int n, m, sm, flag=1;
     do {
         printf("Introduza um número inteiro: ");
         scanf("%d", &n);
@@ -42,20 +42,22 @@ void smaior(){
                 break;
 
             case 2:
-                if (m > n) sm = n;
-                else {
+                if (n > m) {
                     sm = m;
                     m = n;
                 }
+                else sm = n;
                 flag++;
                 break;
 
             default:
-            if (n > m) {
-            sm = m;
-            m = n;
-        } else if (n > sm) sm = n;
-    }
+                if (n > m) {
+                    sm = m;
+                    m = n;
+                }
+                else
+                    if (n > sm) sm = n;
+        }
     } while (n);
     if (flag==2)
         printf("Apenas um número introduzido!\n");
@@ -81,7 +83,7 @@ int trailingZ (unsigned int n){
     unsigned int n0=n;
     //i = (n==0) ? 32 : 0; //assume-se um valor máximo de 32 bits para representar 0??
     while(n){
-        if (!n%2) i++;
+        if (!(n%2)) i++;
         else break;
         n=n/2;
     }
@@ -962,7 +964,5 @@ int vizinhos (Posicao p, Posicao pos[], int N){
 
     if (!cont)
         printf("Não há vizinhos!\n");
-
-
     return cont;
 }
