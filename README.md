@@ -1,3 +1,3 @@
 # PI-50-Questions
-Resolution of 50 questions in C for PI class  
+Solutions for the 50 questions for PI class in C 
 Includes an executable
